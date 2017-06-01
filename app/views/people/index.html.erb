@@ -2,3 +2,12 @@
 <hr />
 
 <%= link_to 'Create New Person', new_person_path %>
+
+<%= if @person.empty? %>
+  <h3>No person found, please add one!</h3>
+<%= else %>
+  <ul>
+    <%= @person.each do |person| %>
+      <li>
+        <%= link_to person.title, person_path(person) %>
+    <span> - </span>
